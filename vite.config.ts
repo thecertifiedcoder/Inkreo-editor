@@ -23,7 +23,7 @@ export default defineConfig(({ mode }) => {
         ],
       }),
     ],
-    base: mode === "production" ? "/notitap/" : "/",
+    base: "/",
     server: {
       port: 3002,
     },
