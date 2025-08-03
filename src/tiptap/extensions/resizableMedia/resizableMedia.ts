@@ -121,10 +121,9 @@ export const ResizableMedia = Node.create<MediaOptions>({
       ];
     }
 
-    if (!mediaType)
-      console.error(
-        "TiptapMediaExtension-renderHTML method: Media Type not set, going default with image"
-      );
+    if (!mediaType) {
+      // Media Type not set, going default with image
+    }
 
     return [
       "img",
@@ -155,10 +154,9 @@ export const ResizableMedia = Node.create<MediaOptions>({
             });
           }
 
-          if (!mediaType)
-            console.error(
-              "TiptapMediaExtension-setMedia: Media Type not set, going default with image"
-            );
+          if (!mediaType) {
+            // Media Type not set, going default with image
+          }
 
           return commands.insertContent({
             type: this.name,

@@ -92,8 +92,7 @@ export const ResizableMediaNodeView = ({
     mediaSetupOnLoad();
   });
 
-  const [isHorizontalResizeActive, setIsHorizontalResizeActive] =
-    useState(false);
+  const [, setIsHorizontalResizeActive] = useState(false);
 
   interface WidthAndHeight {
     width: number;
@@ -130,9 +129,7 @@ export const ResizableMediaNodeView = ({
     diff: number
   ) => {
     if (!resizableImgRef.current) {
-      console.error("Media ref is undefined|null", {
-        resizableImg: resizableImgRef.current,
-      });
+      // Media ref is undefined/null
       return;
     }
 
