@@ -128,7 +128,7 @@ export function autolink(options: AutolinkOptions): Plugin {
       });
 
       if (!tr.steps.length) {
-        return;
+        return null;
       }
 
       return tr;

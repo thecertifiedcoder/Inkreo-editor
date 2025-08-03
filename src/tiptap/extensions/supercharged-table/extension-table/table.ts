@@ -91,6 +91,7 @@ declare module "@tiptap/core" {
 export const Table = Node.create<TableOptions>({
   name: "table",
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   addOptions() {
     return {
@@ -285,6 +286,7 @@ export const Table = Node.create<TableOptions>({
               cellMinWidth: this.options.cellMinWidth,
               View: this.options.View,
               // TODO: PR for @types/prosemirror-tables
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore (incorrect type)
               lastColumnResizable: this.options.lastColumnResizable,
             }),

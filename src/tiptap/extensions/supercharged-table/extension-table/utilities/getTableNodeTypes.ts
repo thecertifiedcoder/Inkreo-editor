@@ -15,6 +15,7 @@ export function getTableNodeTypes(schema: Schema): { [key: string]: NodeType } {
     }
   });
 
+  // eslint-disable-next-line no-param-reassign
   schema.cached.tableNodeTypes = roles;
 
   return roles;
