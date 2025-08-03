@@ -25,7 +25,7 @@ export interface LinkOptions {
   /**
    * A list of HTML attributes to be rendered.
    */
-  HTMLAttributes: Record<string, any>;
+  HTMLAttributes: Record<string, unknown>;
   /**
    * A validation function that modifies link verification for the auto linker.
    * @param url - The url to be validated.
@@ -35,7 +35,7 @@ export interface LinkOptions {
   /**
    * Runs a provided function when `Mod-k` is pressed
    */
-  onModKPressed?: () => any;
+  onModKPressed?: () => void;
 }
 
 declare module "@tiptap/core" {

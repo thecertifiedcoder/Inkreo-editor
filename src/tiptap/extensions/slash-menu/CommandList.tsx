@@ -3,9 +3,11 @@ import { stopPrevent } from "../../utils";
 
 import "./styles/CommandList.scss";
 
+import { SlashCommandItem } from "../../../types/editor";
+
 interface CommandListProps {
-  items: any[];
-  command: (...args: any[]) => any;
+  items: SlashCommandItem[];
+  command: (item: SlashCommandItem) => void;
 }
 
 export const CommandList = React.forwardRef(

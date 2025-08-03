@@ -1,11 +1,13 @@
 /* @unocss-include */
 // import { IconAlignCenter, IconAlignLeft, IconAlignRight, IconFloatLeft, IconFloatRight, IconDelete } from '~/assets'
 
+import { MediaOptions } from "../../../types/editor";
+
 interface ResizableMediaAction {
   tooltip: string;
   icon?: string;
-  action?: (updateAttributes: (o: Record<string, any>) => any) => void;
-  isActive?: (attrs: Record<string, any>) => boolean;
+  action?: (updateAttributes: (o: Partial<MediaOptions>) => void) => void;
+  isActive?: (attrs: Record<string, unknown>) => boolean;
   delete?: (d: () => void) => void;
 }
 

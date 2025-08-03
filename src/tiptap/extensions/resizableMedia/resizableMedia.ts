@@ -23,10 +23,12 @@ declare module "@tiptap/core" {
   }
 }
 
-export interface MediaOptions {
+import { MediaOptions as BaseMediaOptions } from "../../../types/editor";
+
+export interface MediaOptions extends BaseMediaOptions {
   // inline: boolean, // we have floating support, so block is good enough
   // allowBase64: boolean, // we're not going to allow this
-  HTMLAttributes: Record<string, any>;
+  HTMLAttributes: Record<string, unknown>;
   uploadFn: UploadFnType;
 }
 

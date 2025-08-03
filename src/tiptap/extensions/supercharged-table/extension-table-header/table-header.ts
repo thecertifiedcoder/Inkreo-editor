@@ -4,7 +4,7 @@ import { ReactNodeViewRenderer } from "@tiptap/react";
 import { TableCellNodeView } from "../extension-table-cell/TableCellNodeView";
 
 export interface TableHeaderOptions {
-  HTMLAttributes: Record<string, any>;
+  HTMLAttributes: Record<string, unknown>;
 }
 export const TableHeader = Node.create<TableHeaderOptions>({
   name: "tableHeader",
