@@ -62,7 +62,7 @@ export const TrailingNode = Extension.create<TrailingNodeOptions>({
           apply: (tr, value) => {
             if (!tr.docChanged) return value;
 
-            const lastNode = (tr.doc.lastChild?.content as { content?: Array<{ type: { name: string } }> })?.content?.[0];
+            const lastNode = (tr.doc.lastChild?.content as any)?.content?.[0];
 
             return !nodeEqualsType({ node: lastNode, types: disabledNodes });
           },
