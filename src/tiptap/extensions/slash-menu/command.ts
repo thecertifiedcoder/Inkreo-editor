@@ -8,7 +8,11 @@ export const Commands = Extension.create({
     return {
       suggestions: {
         char: "/",
-        command: ({ editor, range, props }: any) =>
+        command: ({ editor, range, props }: { 
+          editor: any; 
+          range: any; 
+          props: { command: (params: { editor: any; range: any }) => void } 
+        }) =>
           props.command({ editor, range }),
       },
     };

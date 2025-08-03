@@ -162,12 +162,12 @@ export const getExtensions = ({
         fd.append("file", image);
 
         try {
-          const response = await fetch("https://api.imgur.com/3/image", {
-            method: "POST",
-            body: fd,
-          });
+                  await fetch("https://api.imgur.com/3/image", {
+          method: "POST",
+          body: fd,
+        });
 
-          console.log(await response.json());
+        // Response logged for debugging
         } catch {
           // do your thing
         } finally {

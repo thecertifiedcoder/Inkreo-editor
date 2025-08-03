@@ -1,11 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-export function debounce<T extends Function>(func: T, wait: number) {
+import { DebounceFunction } from "../../types/editor";
+
+export function debounce<T extends (...args: any[]) => any>(
+  func: T,
+  wait: number
+): DebounceFunction<T> {
   let h: NodeJS.Timeout;
 
-  const callable = (...args: any) => {
+  const callable = (...args: Parameters<T>) => {
     clearTimeout(h);
     h = setTimeout(() => func(...args), wait);
   };
 
-  return <T>(<any>callable);
+  return callable as DebounceFunction<T>;
 }

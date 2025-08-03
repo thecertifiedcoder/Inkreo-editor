@@ -31,8 +31,10 @@ import { TableView } from "./TableView";
 import { createTable } from "./utilities/createTable";
 import { deleteTableWhenAllCellsSelected } from "./utilities/deleteTableWhenAllCellsSelected";
 
-export interface TableOptions {
-  HTMLAttributes: Record<string, any>;
+import { TableOptions as BaseTableOptions } from "../../../../types/editor";
+
+export interface TableOptions extends BaseTableOptions {
+  HTMLAttributes: Record<string, unknown>;
   resizable: boolean;
   handleWidth: number;
   cellMinWidth: number;

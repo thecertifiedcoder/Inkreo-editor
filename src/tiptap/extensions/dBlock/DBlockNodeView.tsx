@@ -9,7 +9,7 @@ export const DBlockNodeView: React.FC<NodeViewProps> = ({
   editor,
 }) => {
   const isTable = useMemo(() => {
-    const { content } = node.content as any;
+    const content = (node.content as any)?.content;
 
     return content[0].type.name === "table";
   }, [node.content]);

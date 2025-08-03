@@ -126,7 +126,7 @@ export class BubbleMenuView {
     const { state, composing } = view;
     const { selection } = state;
 
-    console.log("updated");
+    // Updated
 
     if (composing) return;
 

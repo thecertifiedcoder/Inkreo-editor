@@ -3,10 +3,10 @@ import { NodeSelection } from "prosemirror-state";
 import { stopPrevent } from "@/tiptap/utils";
 
 export interface TableRowOptions {
-  HTMLAttributes: Record<string, any>;
+  HTMLAttributes: Record<string, unknown>;
 }
 
-const isScrollable = function (ele: any) {
+const isScrollable = function (ele: HTMLElement) {
   const hasScrollableContent = ele.scrollHeight > ele.clientHeight;
 
   const overflowYStyle = window.getComputedStyle(ele).overflowY;
@@ -15,26 +15,26 @@ const isScrollable = function (ele: any) {
   return hasScrollableContent && !isOverflowHidden;
 };
 
-const getScrollableParent = function (ele: any): any {
+const getScrollableParent = function (ele: HTMLElement): HTMLElement {
   // eslint-disable-next-line no-nested-ternary
   return !ele || ele === document.body
     ? document.body
     : isScrollable(ele)
     ? ele
-    : getScrollableParent(ele.parentNode);
+    : getScrollableParent(ele.parentNode as HTMLElement);
 };
 
 const getElementWithAttributes = (
   name: string,
-  attrs?: Record<string, any>,
-  events?: Record<string, any>
+  attrs?: Record<string, unknown>,
+  events?: Record<string, EventListener>
 ) => {
   const el = document.createElement(name);
 
   if (!el) throw new Error(`Element with name ${name} can't be created.`);
 
   if (attrs) {
-    Object.entries(attrs).forEach(([key, val]) => el.setAttribute(key, val));
+    Object.entries(attrs).forEach(([key, val]) => el.setAttribute(key, String(val)));
   }
 
   if (events) {
@@ -87,7 +87,7 @@ export const TableRow = Node.create<TableRowOptions>({
       const pos = () => (getPos as () => number)();
 
       const scrollableParent = getScrollableParent(
-        editor.options.element
+        editor.options.element as HTMLElement
       ) as HTMLDivElement;
 
       let isCursorInsideControlSection = false;

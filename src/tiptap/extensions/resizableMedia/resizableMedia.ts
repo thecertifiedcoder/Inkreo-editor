@@ -23,10 +23,12 @@ declare module "@tiptap/core" {
   }
 }
 
-export interface MediaOptions {
+import { MediaOptions as BaseMediaOptions } from "../../../types/editor";
+
+export interface MediaOptions extends BaseMediaOptions {
   // inline: boolean, // we have floating support, so block is good enough
   // allowBase64: boolean, // we're not going to allow this
-  HTMLAttributes: Record<string, any>;
+  HTMLAttributes: Record<string, unknown>;
   uploadFn: UploadFnType;
 }
 
@@ -121,10 +123,9 @@ export const ResizableMedia = Node.create<MediaOptions>({
       ];
     }
 
-    if (!mediaType)
-      console.error(
-        "TiptapMediaExtension-renderHTML method: Media Type not set, going default with image"
-      );
+    if (!mediaType) {
+      // Media Type not set, going default with image
+    }
 
     return [
       "img",
@@ -155,10 +156,9 @@ export const ResizableMedia = Node.create<MediaOptions>({
             });
           }
 
-          if (!mediaType)
-            console.error(
-              "TiptapMediaExtension-setMedia: Media Type not set, going default with image"
-            );
+          if (!mediaType) {
+            // Media Type not set, going default with image
+          }
 
           return commands.insertContent({
             type: this.name,

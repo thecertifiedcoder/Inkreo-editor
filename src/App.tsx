@@ -1,4 +1,4 @@
-import { Tiptap } from "./tiptap";
+import { TiptapLazy } from "./tiptap/TiptapLazy";
 
 import "./App.css";
 
@@ -39,7 +39,7 @@ function App() {
         </p>
       </header>
       <main className="flex justify-start w-full">
-        <Tiptap />
+        <TiptapLazy />
       </main>
     </div>
   );
